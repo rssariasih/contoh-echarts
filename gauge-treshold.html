@@ -1,0 +1,208 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=gauge-stage&lang=js&code=PYBwLglsB2AEC8sDeAoWsDOBTAThLGAXLANprrLkWxgCeIWxA5AOYCGAri1kwDRUU2ADwgYAMhGiNK1agBtJWAMp0501LNkB3CABMwAC2IBmAAz9N1AMbA5wHMTKXZJUwDpjvWEwDEANgB2LFMsYyYAXQtnClc3AK9fYwC2ACZdNgio6NIARgSfADNdPxLdCIFNcIqKAF9qmqyKEGBJMFxiDUsINoBbFVo1DurrW3tmTjBgJmHYOs0G6uFRABUIKwBrIeddUTA2aCtpAFozRvksaBZDYgAOM4oFKX7BmWibOwdvQoKCvhn0HT6IywFIzOayBaaDAgBRgCRSLaWHYYPYHY6nGZqS7XWAY5yPZSqdT_WDvMZfH6_e7UQE4gAsYPq9yW4jYACMsHJEZoyZ8mJIDLhun9trt9odiHTzDMCjAwEoIAAvaQpUxM6q6LB7CBc16aABubDkHCwAEFoBAemxIDBiGAcCbqbBZTgrWA2nykIbjVgarB1j0APQGEWWXnMAVCsDTeb3dJ7RwzTrOb0m4gBNXOcHUKrUcFVGoAbhQ2DAAEloB7vQAKAocA42uDVgCUrx6tAAwgY2DgwG5SwB5cBQaDV5OYIUEROacfUeNsafRWeWVPSADU1YAstaDG4cPtdMAei3YAAqWA5UymZtuSYAMQgQiwumrKWbJOzslzEIE35qzeLBoQSva9CyAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+}
+#chart-container {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+    </style>
+  </head>
+  <body style="height: 100%; margin: 0">
+    <div id="chart-container" style="height: 100%"></div>
+    <script
+      type="text/javascript"
+      src="https://fastly.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      var dom = document.getElementById("chart-container");
+      var myChart = echarts.init(dom, null, {
+        renderer: "canvas",
+        useDirtyRect: false,
+        width: 500,
+        height: 500,
+      });
+      var app = {};
+
+      var option;
+
+      option = {
+  series: [
+
+    {
+      type: 'gauge',
+      center: ['50%', '60%'],
+      startAngle: 180,
+      endAngle: 0,
+      min: 0,
+      max: 900,
+      axisLine: {
+        show: true,
+        lineStyle: {
+          width: 30,
+          color: [
+            [1, 'black']
+          ],
+          opacity: .1
+        }
+      },
+      progress: {
+        show: true,
+        width: 30,
+        itemStyle: {
+          color: 'auto',
+        }
+      },
+      pointer: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+      },
+      anchor: {
+        show: false
+      },
+      title: {
+        show: false
+      },
+      detail: {
+        show: false
+      },
+      emphasis: {
+        itemStyle: {
+          opacity: .7,
+          color: 'auto'
+        }
+      },
+      data: [
+        {
+          value: 140
+        }
+      ]
+    },
+    {
+      type: 'gauge',
+      center: ['50%', '60%'],
+      startAngle: 180,
+      endAngle: 0,
+      min: 0,
+      max: 900,
+      radius: '78%',
+      splitNumber: 6,
+      axisLine: {
+        show: true,
+        lineStyle: {
+          width: 8,
+          color: [
+            [(150 * 1) / 900, 'green'],
+            [(300 * 1) / 900, 'red'],
+            [450 / 900, 'yellow'],
+            [600 / 900, 'blue'],
+            [1, 'black']
+          ],
+        }
+      },
+
+      progress: {
+        show: false,
+      },
+      pointer: {
+        show: false,
+      },
+      axisTick: {
+        show: false
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        show: true,
+        distance: -70,
+        color: '#000000',
+        fontSize: 30,
+        padding: [-15, -20, 0, 0],
+        formatter: function (value) {
+          if (value === 0 || value === 150 ||
+            value === 300 || value === 450 ||
+            value === 600 || value === 900) {
+            return value + '';
+          }
+          return '';
+        }
+      },
+      title: {
+        show: true,
+        offsetCenter: [0, '15%'],
+        fontSize: 30,
+      },
+      detail: {
+        valueAnimation: true,
+        borderRadius: 8,
+        offsetCenter: [0, '-25%'],
+        fontSize: 60,
+        fontWeight: 'bolder',
+        formatter: '{value}',
+        color: 'auto',
+      },
+      data: [
+        {
+          value: 140
+        }
+      ]
+    },
+
+  ]
+};
+
+setInterval(function () {
+  const random = +(Math.random() * 900).toFixed(0);
+  myChart.setOption<echarts.EChartsOption>({
+    series: [
+      {
+        data: [
+          {
+            value: random,
+            name: "P/m2"
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            value: random,
+            name: "P/m2"
+          }
+        ]
+      }
+    ]
+  });
+}, 2000);
+
+
+
+      if (option && typeof option === "object") {
+        myChart.setOption(option);
+      }
+
+      window.addEventListener("resize", myChart.resize);
+    </script>
+  </body>
+</html>
