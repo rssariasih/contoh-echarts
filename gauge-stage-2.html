@@ -93,7 +93,7 @@
               color: "#464646",
               fontSize: 10,
               distance: -60,
-              formatter: function (value) {
+              formatter: function (value) { 
                 if (value === 0.875) {
                   return "GOOD";
                 } else if (value === 0.625) {
@@ -114,7 +114,7 @@
               fontSize: 20,
               offsetCenter: [0, "-5%"],
               valueAnimation: true,
-              formatter: function (value) {
+              formatter: function (value) { console.log(value);
                 return Math.round(value * 100) + "%";
               },
               color: "auto",
