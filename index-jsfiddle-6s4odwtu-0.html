@@ -9,7 +9,7 @@
 
   <style>
 .container {
-    width: auto!important;
+    /* width: auto!important; */
     display: flex;
     border: 1px solid red;
     padding: 5px;
@@ -127,6 +127,10 @@ function resize() {
 };
 chart0.setOption(option0);
 chart1.setOption(option1);
+
+new ResizeObserver(() => chart0.resize()).observe(main0Box);
+new ResizeObserver(() => chart1.resize()).observe(main1Box);
+
 
   </script>
 </body>
